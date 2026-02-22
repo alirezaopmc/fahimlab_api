@@ -8,36 +8,12 @@ from wagtail.models import Page
 
 class HomePage(Page):
     """
-    Minimal root page. Only BlogIndexPage can be created under it.
-    Required for Wagtail's site structure; not used by the Next.js API.
+    Minimal root page. BlogPage can be created directly under it.
+    Required for Wagtail's site structure; not used by the API.
     """
 
-    subpage_types = ["blog.BlogIndexPage"]
-    parent_page_types = ["wagtailcore.Page"]
-
-    # Keep body for backwards compatibility with existing migration
-    body = RichTextField(blank=True)
-
-    content_panels = Page.content_panels + [
-        "body",
-    ]
-
-
-class BlogIndexPage(Page):
-    """Index page that lists blog posts. Create one under Home in the admin."""
-
-    intro = RichTextField(blank=True)
-
-    content_panels = Page.content_panels + [
-        "intro",
-    ]
-
     subpage_types = ["blog.BlogPage"]
-    parent_page_types = ["blog.HomePage"]
-
-    api_fields = [
-        APIField("intro"),
-    ]
+    parent_page_types = ["wagtailcore.Page"]
 
 
 class BlogPage(Page):
@@ -62,7 +38,7 @@ class BlogPage(Page):
     ]
 
     subpage_types = []
-    parent_page_types = ["blog.BlogIndexPage"]
+    parent_page_types = ["blog.HomePage"]
 
     api_fields = [
         APIField("date"),

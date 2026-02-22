@@ -17,16 +17,13 @@
 2. **Log in** at http://localhost:8000/cms/
 
 3. **Create blog structure**:
-   - Under **Home**, add a child page → choose **Blog index page**
-   - Give it a title (e.g. "Blog") and slug (e.g. "blog")
-   - Publish
-   - Under the Blog index, add child pages → choose **Blog page**
+   - Under **Home**, add child pages → choose **Blog page**
    - Fill in date, intro, body, optional feed image
    - Publish
 
-4. **Get blog index ID** for the API:
+4. **Get home page ID** for the API:
    ```bash
-   curl "http://localhost:8000/api/v2/pages/?type=blog.BlogIndexPage"
+   curl "http://localhost:8000/api/v2/pages/?type=blog.HomePage"
    ```
    Use the `id` from the response as `child_of` when fetching posts.
 
@@ -34,9 +31,8 @@
 
 | Type | Parent | Purpose |
 |------|--------|---------|
-| HomePage | Root | Site root; only Blog index can be added |
-| BlogIndexPage | HomePage | Blog listing page |
-| BlogPage | BlogIndexPage | Individual blog post |
+| HomePage | Root | Site root; Blog pages can be added directly |
+| BlogPage | HomePage | Individual blog post |
 
 ## Permissions
 

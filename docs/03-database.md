@@ -6,11 +6,10 @@
 
 | Model | Purpose |
 |-------|---------|
-| HomePage | Root page; only BlogIndexPage can be created under it |
-| BlogIndexPage | Blog index; lists posts |
+| HomePage | Root page; BlogPage can be created directly under it |
 | BlogPage | Individual blog post (date, intro, body, feed_image) |
 
-**Hierarchy:** HomePage → BlogIndexPage → BlogPage
+**Hierarchy:** HomePage → BlogPage
 
 ### Planned
 

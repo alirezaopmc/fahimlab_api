@@ -43,14 +43,14 @@ This starts PostgreSQL, runs migrations, and starts the server.
 
 ## Blog API (for Next.js)
 
-After creating a **Blog** index page and posts in the CMS (`/cms/`):
+After creating a **Home** page and blog posts in the CMS (`/cms/`):
 
-**Find the blog index ID:**
+**Find the home page ID:**
 ```bash
-curl "http://localhost:8000/api/v2/pages/?type=blog.BlogIndexPage"
+curl "http://localhost:8000/api/v2/pages/?type=blog.HomePage"
 ```
 
-**List blog posts** (replace `3` with your blog index ID):
+**List blog posts** (replace `3` with your home page ID):
 ```bash
 curl "http://localhost:8000/api/v2/pages/?type=blog.BlogPage&child_of=3&fields=title,meta,date,intro,body&order=-first_published_at"
 ```
@@ -93,7 +93,7 @@ Copy `.env.example` to `.env` for local development. Key variables:
 ├── config/          # Django configuration
 ├── apps/
 │   ├── core/        # Core app
-│   └── blog/        # Blog (HomePage, BlogIndexPage, BlogPage)
+│   └── blog/        # Blog (HomePage, BlogPage)
 ├── docs/            # Documentation (see docs/README.md for index)
 ├── tests/           # Integration tests (see docs/10-testing.md)
 ├── compose.yaml     # PostgreSQL service

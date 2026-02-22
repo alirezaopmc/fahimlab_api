@@ -5,7 +5,7 @@
 | App | Purpose |
 |-----|---------|
 | `core` | Shared utilities, base models, common logic |
-| `blog` | Blog posts (Wagtail HomePage, BlogIndexPage, BlogPage) |
+| `blog` | Blog posts (Wagtail HomePage, BlogPage) |
 | `people` | Lab members, Person, PersonLink, PersonPosition (planned) |
 | `publications` | Publications, citations (planned) |
 | `projects` | Research projects (planned) |

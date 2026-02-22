@@ -3,12 +3,12 @@
 import pytest
 from wagtail.models import Page, Site
 
-from apps.blog.models import BlogIndexPage, BlogPage, HomePage
+from apps.blog.models import BlogPage, HomePage
 
 
 @pytest.fixture
-def blog_index_id(db):
-    """Create Wagtail page tree and return blog index ID for child_of queries."""
+def home_id(db):
+    """Create Wagtail page tree and return home ID for child_of queries."""
     root = Page.get_first_root_node()
     Site.objects.create(
         hostname="testserver",
@@ -18,8 +18,6 @@ def blog_index_id(db):
     )
     home = HomePage(title="Home", slug="home-itest")
     root.add_child(instance=home)
-    blog_index = BlogIndexPage(title="Blog", slug="blog-itest")
-    home.add_child(instance=blog_index)
     post = BlogPage(
         title="Test Post",
         slug="test-post",
@@ -27,14 +25,14 @@ def blog_index_id(db):
         intro="Short intro",
         body="<p>Body content</p>",
     )
-    blog_index.add_child(instance=post)
-    return blog_index.id
+    home.add_child(instance=post)
+    return home.id
 
 
-def test_list_blog_posts_returns_expected_structure(client, blog_index_id):
+def test_list_blog_posts_returns_expected_structure(client, home_id):
     """List blog posts returns 200 with meta, items, and expected fields."""
     response = client.get(
-        f"/api/v2/pages/?type=blog.BlogPage&child_of={blog_index_id}"
+        f"/api/v2/pages/?type=blog.BlogPage&child_of={home_id}"
         "&fields=title,date,intro,body,feed_image_thumbnail"
         "&order=-first_published_at"
     )
@@ -52,7 +50,7 @@ def test_list_blog_posts_returns_expected_structure(client, blog_index_id):
     assert "meta" in post
 
 
-def test_single_post_by_slug(client, blog_index_id):
+def test_single_post_by_slug(client, home_id):
     """Single post by slug returns 200 with expected fields."""
     response = client.get(
         "/api/v2/pages/?type=blog.BlogPage&slug=test-post&fields=title,date,intro,body"

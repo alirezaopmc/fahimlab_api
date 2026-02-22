@@ -45,7 +45,6 @@ Each listing response contains:
 | Type | Purpose |
 |------|---------|
 | `blog.HomePage` | Root page (structural only) |
-| `blog.BlogIndexPage` | Blog index; lists posts |
 | `blog.BlogPage` | Individual blog post |
 
 ### Exported Fields (BlogPage)
@@ -65,20 +64,20 @@ The `body` field returns HTML. Wagtail may include custom elements for internal 
 ### List Blog Posts
 
 ```http
-GET /api/v2/pages/?type=blog.BlogPage&child_of=<BLOG_INDEX_ID>&fields=title,meta,date,intro,body,feed_image_thumbnail&order=-first_published_at
+GET /api/v2/pages/?type=blog.BlogPage&child_of=<HOME_ID>&fields=title,meta,date,intro,body,feed_image_thumbnail&order=-first_published_at
 ```
 
 **Parameters:**
 
 - `type=blog.BlogPage` — Filter to blog posts only
-- `child_of=<ID>` — Only posts under this blog index
+- `child_of=<ID>` — Only posts under this home page
 - `fields=...` — Comma-separated fields to return (required for custom fields)
 - `order=-first_published_at` — Newest first
 
 **curl example:**
 
 ```bash
-curl "http://localhost:8000/api/v2/pages/?type=blog.BlogPage&child_of=3&fields=title,meta,date,intro,body,feed_image_thumbnail&order=-first_published_at"
+curl "http://localhost:8000/api/v2/pages/?type=blog.BlogPage&child_of=2&fields=title,meta,date,intro,body,feed_image_thumbnail&order=-first_published_at"
 ```
 
 ### Single Post by Slug
@@ -105,12 +104,12 @@ GET /api/v2/pages/<id>/?fields=*,body
 curl "http://localhost:8000/api/v2/pages/5/?fields=*,body"
 ```
 
-### Find Blog Index ID
+### Find Home Page ID
 
-Create a Blog index page under Home in the CMS (`/cms/`), then:
+Create a site with Home as root in the CMS (`/cms/`), then:
 
 ```bash
-curl "http://localhost:8000/api/v2/pages/?type=blog.BlogIndexPage"
+curl "http://localhost:8000/api/v2/pages/?type=blog.HomePage"
 ```
 
 Use the `id` from the response as `child_of` when listing posts.
@@ -125,7 +124,7 @@ Use the `id` from the response as `child_of` when listing posts.
 **Example:**
 
 ```bash
-curl "http://localhost:8000/api/v2/pages/?type=blog.BlogPage&child_of=3&limit=10&offset=20"
+curl "http://localhost:8000/api/v2/pages/?type=blog.BlogPage&child_of=2&limit=10&offset=20"
 ```
 
 ## Ordering
