@@ -1,6 +1,17 @@
 # Database
 
-## Models (Planned)
+## Models
+
+### Blog (Wagtail)
+
+| Model | Purpose |
+|-------|---------|
+| HomePage | Root page; BlogPage can be created directly under it |
+| BlogPage | Individual blog post (date, intro, body, feed_image) |
+
+**Hierarchy:** HomePage → BlogPage
+
+### Planned
 
 | Model | Purpose |
 |-------|---------|
@@ -10,7 +21,6 @@
 | Publication | Research publication |
 | Project | Research project |
 | Apply | Application/contact form submission |
-| Blog | Blog posts (Wagtail) |
 
 ## ERD
 
@@ -18,6 +28,6 @@ To be expanded as models are implemented. See migrations in each app for schema.
 
 ## Migrations
 
-- Use `just migrate-create` to generate migrations
-- Use `just migrate` to apply migrations
+- `just migrate` — Apply migrations
+- `just migrate-create` — Generate new migrations
 - Keep migrations small and focused

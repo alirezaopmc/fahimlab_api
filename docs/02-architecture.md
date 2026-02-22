@@ -5,19 +5,19 @@
 | App | Purpose |
 |-----|---------|
 | `core` | Shared utilities, base models, common logic |
-| `people` | Lab members, Person, PersonLink, PersonPosition |
-| `publications` | Publications, citations |
-| `projects` | Research projects |
-| `blog` | Blog posts (Wagtail) |
-| `accounts` | User accounts, auth |
-| `storage` | S3/media abstraction |
+| `blog` | Blog posts (Wagtail HomePage, BlogPage) |
+| `people` | Lab members, Person, PersonLink, PersonPosition (planned) |
+| `publications` | Publications, citations (planned) |
+| `projects` | Research projects (planned) |
+| `accounts` | User accounts, auth (planned) |
+| `storage` | S3/media abstraction (planned) |
 
 ## Layers
 
 1. **Domain**: Models, entities, value objects
 2. **Application**: Services (`{app}/services.py`), use cases
 3. **Infrastructure**: Repositories (`{app}/repositories.py`), storage adapters
-4. **Interface**: DRF viewsets, serializers, Wagtail API
+4. **Interface**: Wagtail API ([config/api.py](../config/api.py)), DRF viewsets (planned)
 
 ## Repository Pattern
 

@@ -1,5 +1,11 @@
 # Storage
 
+## Wagtail Media (images, documents)
+
+- Currently uses local `MEDIA_ROOT`. For production, configure S3 via `django-storages` and Django's `STORAGES["default"]`.
+- See [Wagtail: Storing and serving](https://docs.wagtail.org/en/stable/advanced_topics/documents/storing_and_serving.html).
+- Path convention: Wagtail uses `images/` and `documents/` subdirectories under media root.
+
 ## Object Storage (S3)
 
 - Store S3 keys in DB; generate public URLs on read

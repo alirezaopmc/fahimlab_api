@@ -3,8 +3,28 @@
 
 set dotenv-load
 
+# Default
+default:
+    just run
+
 # Run development server
-port := env_var_or_default('PORT', '8000')
+port := env('PORT', '8000')
+
+# Start PostgreSQL (Docker Compose)
+db:
+    docker compose up -d db
+
+# Alias for db
+up: db
+
+# Full dev workflow: start db, migrate, run server
+dev: db
+    #!/usr/bin/env bash
+    echo "Waiting for PostgreSQL..."
+    sleep 3
+    just migrate
+    just run
+
 run:
     uv run python manage.py runserver 0.0.0.0:{{port}}
 
@@ -15,6 +35,10 @@ migrate:
 # Create new migrations
 migrate-create:
     uv run python manage.py makemigrations
+
+# Run integration tests (testcontainers + pytest)
+itest:
+    uv run pytest
 
 # Lint and format
 lint:
@@ -29,4 +53,3 @@ format-check:
 # Install dependencies
 install:
     uv sync
-
