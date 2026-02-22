@@ -6,7 +6,7 @@
 2. **Branch first**: Switch to a new branch with conventional naming *before* writing code. Use `feat/area/description` or `fix/area/description` (e.g., `feat/blog/wagtail`, `fix/auth/session-handling`). Never work on `main`/`dev` directly.
 3. **Follow**: Use the embedded task template(s) and plan structure in this document
 4. **Execute**: Work through phases; mark progress in the on-the-fly plan
-5. **Tests**: For logic or feature code, include integration tests. See [docs/10-testing.md](10-testing.md). Tests run on approved PRs via CI; see [docs/12-cicd.md](12-cicd.md).
+5. **Tests**: For logic or feature code, include integration tests. See [docs/10-testing.md](10-testing.md). Tests run on every PR via CI; see [docs/12-cicd.md](12-cicd.md).
 6. **Commit**: Commit each portion of related files atomically with conventional messages (e.g., `feat(people): add Person model and migrations`, `feat(people): add repositories and services`)
 7. **Finish**: Update relevant docs in `docs/` when the task completes
 8. **No automatic commits**: Do not commit changes unless the user explicitly requests it. The user retains responsibility for final commits.

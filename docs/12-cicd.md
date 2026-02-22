@@ -2,12 +2,11 @@
 
 ## Overview
 
-GitHub Actions runs tests **only when a pull request is approved**. This reduces CI usage and ensures tests run on code that has passed review.
+GitHub Actions runs tests on every pull request: when the PR is opened and when new commits are pushed.
 
 ## Workflow
 
-- **Trigger**: `pull_request_review` with `submitted` — runs when a review is submitted
-- **Condition**: `github.event.review.state == 'APPROVED'` — only runs when the review is an approval
+- **Trigger**: `pull_request` with `opened` and `synchronize` — runs on PR creation and on each push to the PR branch
 - **Job**: Runs integration tests via `uv run pytest` (same as `just itest` locally)
 
 ## Success Criteria
