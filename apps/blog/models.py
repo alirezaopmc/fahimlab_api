@@ -2,6 +2,7 @@ from django.db import models
 from wagtail.api import APIField
 from wagtail.fields import RichTextField
 from wagtail.images import get_image_model_string
+from wagtail.images.api.fields import ImageRenditionField
 from wagtail.models import Page
 
 
@@ -68,4 +69,8 @@ class BlogPage(Page):
         APIField("intro"),
         APIField("body"),
         APIField("feed_image"),
+        APIField(
+            "feed_image_thumbnail",
+            serializer=ImageRenditionField("fill-600x400", source="feed_image"),
+        ),
     ]

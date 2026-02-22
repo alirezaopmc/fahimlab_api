@@ -19,8 +19,8 @@ Admins manage content via Django admin and Wagtail CMS.
 
 ## Stack
 
-- **Backend**: Django 6, Django REST Framework, Wagtail CMS
-- **Frontend (consumers)**: Next.js (separate repo)
+- **Backend**: Django 6, Wagtail CMS
+- **Frontend (consumers)**: Next.js (separate repo) — consumes blog API at `/api/v2/`
 - **Package manager**: uv
-- **Database**: PostgreSQL (production), SQLite (development)
-- **Storage**: S3 for media and uploads
+- **Database**: PostgreSQL (local via Docker, production via Render)
+- **Storage**: S3 for media and uploads (planned)

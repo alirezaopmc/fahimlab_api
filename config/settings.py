@@ -160,7 +160,7 @@ CORS_ALLOWED_ORIGINS = env.list(
 
 # Wagtail
 WAGTAIL_SITE_NAME = "Ali Fahim's Laboratory"
-WAGTAILADMIN_BASE_URL = "http://localhost:8000"
+WAGTAILADMIN_BASE_URL = env("WAGTAILADMIN_BASE_URL", default="http://localhost:8000")
 WAGTAILDOCS_EXTENSIONS = [
     "csv",
     "docx",

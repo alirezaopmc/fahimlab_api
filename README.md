@@ -45,17 +45,22 @@ This starts PostgreSQL, runs migrations, and starts the server.
 
 After creating a **Blog** index page and posts in the CMS (`/cms/`):
 
-**List blog posts:**
+**Find the blog index ID:**
+```bash
+curl "http://localhost:8000/api/v2/pages/?type=blog.BlogIndexPage"
 ```
-GET /api/v2/pages/?type=blog.BlogPage&child_of=<BLOG_INDEX_ID>&fields=title,meta,date,intro,body&order=-first_published_at
+
+**List blog posts** (replace `3` with your blog index ID):
+```bash
+curl "http://localhost:8000/api/v2/pages/?type=blog.BlogPage&child_of=3&fields=title,meta,date,intro,body&order=-first_published_at"
 ```
 
 **Single post by slug:**
-```
-GET /api/v2/pages/?type=blog.BlogPage&slug=<slug>&fields=*,body
+```bash
+curl "http://localhost:8000/api/v2/pages/?type=blog.BlogPage&slug=my-post-slug&fields=*,body"
 ```
 
-**Find the blog index ID:** Create a Blog index page under Home in the CMS, then `GET /api/v2/pages/?type=blog.BlogIndexPage` to get its ID.
+For full API reference (pagination, filtering, search, fields), see [docs/11-wagtail-api.md](docs/11-wagtail-api.md).
 
 ## Commands
 
@@ -79,6 +84,7 @@ Copy `.env.example` to `.env` for local development. Key variables:
 | `DATABASE_URL` | PostgreSQL connection URL (default: `postgresql://fahimlab:fahimlab@localhost:5432/fahimlab`) |
 | `SECRET_KEY` | Django secret key |
 | `ALLOWED_HOSTS` | Comma-separated list (e.g. `localhost,127.0.0.1`) |
+| `CORS_ALLOWED_ORIGINS` | Comma-separated origins for Next.js (default: `http://localhost:3000,http://127.0.0.1:3000`) |
 
 ## Structure
 
@@ -87,6 +93,7 @@ Copy `.env.example` to `.env` for local development. Key variables:
 ├── apps/
 │   ├── core/        # Core app
 │   └── blog/        # Blog (HomePage, BlogIndexPage, BlogPage)
+├── docs/            # Documentation (see docs/README.md for index)
 ├── compose.yaml     # PostgreSQL service
 ├── manage.py
 ├── justfile
