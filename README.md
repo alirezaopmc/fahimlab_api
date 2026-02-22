@@ -87,6 +87,14 @@ Copy `.env.example` to `.env` for local development. Key variables:
 | `ALLOWED_HOSTS` | Comma-separated list (e.g. `localhost,127.0.0.1`) |
 | `CORS_ALLOWED_ORIGINS` | Comma-separated origins for Next.js (default: `http://localhost:3000,http://127.0.0.1:3000`) |
 
+## Tasks
+
+Each task must follow the structure in [docs/09-task-workflow.md](docs/09-task-workflow.md): branch first (`feat/area/desc` or `fix/area/desc`), plan template (Context, Scope, Goals, Implementation, Acceptance Criteria), atomic conventional commits, and doc updates when done.
+
+## Documentation
+
+See [docs/README.md](docs/README.md) for the full documentation index.
+
 ## Structure
 
 ```
@@ -94,7 +102,7 @@ Copy `.env.example` to `.env` for local development. Key variables:
 ├── apps/
 │   ├── core/        # Core app
 │   └── blog/        # Blog (HomePage, BlogPage)
-├── docs/            # Documentation (see docs/README.md for index)
+├── docs/            # Documentation (see docs/README.md)
 ├── tests/           # Integration tests (see docs/10-testing.md)
 ├── compose.yaml     # PostgreSQL service
 ├── manage.py

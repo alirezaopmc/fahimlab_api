@@ -28,8 +28,9 @@ Requires Docker to be available.
 
 ## Testcontainers Flow
 
-- [conftest.py](../conftest.py) uses `pytest_configure` to start the container and set `DATABASE_URL` before Django loads
-- `pytest_unconfigure` stops the container after all tests complete
+- **Local**: [conftest.py](../conftest.py) uses `pytest_configure` to start the container and set `DATABASE_URL` before Django loads
+- **CI**: [scripts/run_tests.py](../scripts/run_tests.py) starts the container and sets `DATABASE_URL` before running pytest (avoids Django loading before `pytest_configure`)
+- `pytest_unconfigure` stops the container after all tests complete (local only; CI wrapper stops it)
 - The container is shared across the entire test session
 
 ## Structure
