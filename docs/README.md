@@ -15,3 +15,4 @@
 | 09 | [task-workflow](09-task-workflow.md) | AI IDE execution |
 | 10 | [testing](10-testing.md) | Integration tests |
 | 11 | [wagtail-api](11-wagtail-api.md) | Wagtail API v2 usage |
+| 12 | [cicd](12-cicd.md) | GitHub Actions; tests on approved PRs |
