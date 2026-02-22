@@ -1,0 +1,19 @@
+services:
+  db:
+    image: postgres:18.2
+    environment:
+      POSTGRES_USER: fahimlab
+      POSTGRES_PASSWORD: fahimlab
+      POSTGRES_DB: fahimlab
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U fahimlab -d fahimlab"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql
+
+volumes:
+  postgres_data:
