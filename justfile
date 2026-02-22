@@ -36,6 +36,10 @@ migrate:
 migrate-create:
     uv run python manage.py makemigrations
 
+# Run integration tests (testcontainers + pytest)
+itest:
+    uv run pytest
+
 # Lint and format
 lint:
     uv run ruff check .

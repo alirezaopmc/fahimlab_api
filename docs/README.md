@@ -1,5 +1,7 @@
 # Documentation Index
 
+**Convention:** All project documentation must be kept within the `docs/` directory. Do not place documentation files elsewhere in the repository.
+
 | # | Doc | Description |
 |---|-----|-------------|
 | 01 | [overview](01-overview.md) | Project goals, stack, audience |

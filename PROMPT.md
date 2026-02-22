@@ -29,7 +29,7 @@ AI IDEs must follow the embedded task templates and plan structure in [docs/09-t
 - **Package manager**: `uv` (not pip). Use `uv add`, `uv run`, etc.
 - **Config**: Read from `.env` via `django-environ`. See `.env.example`.
 - **Commands**: Prefer terminal commands over manual config edits — e.g., `uv add <pkg>`, `just migrate`, `just run` (see `justfile`).
-- **Docs**: Update `docs/` for each task that changes architecture, API, or behavior.
+- **Docs**: Update `docs/` for each task that changes architecture, API, or behavior. All documentation must be kept within the `docs/` directory; do not place documentation files elsewhere.
 - **Testing**: Integration tests only (testcontainers); see [docs/10-testing.md](docs/10-testing.md).
 
 ## Git Workflow

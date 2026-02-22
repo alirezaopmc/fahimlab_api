@@ -71,6 +71,7 @@ For full API reference (pagination, filtering, search, fields), see [docs/11-wag
 | `just migrate` | Run database migrations |
 | `just migrate-create` | Create new migrations |
 | `just dev` | Start db, migrate, then run server |
+| `just itest` | Run integration tests (testcontainers + pytest) |
 | `just lint` | Run Ruff linter |
 | `just format` | Format code with Ruff |
 | `just install` | Install dependencies |
@@ -94,6 +95,7 @@ Copy `.env.example` to `.env` for local development. Key variables:
 │   ├── core/        # Core app
 │   └── blog/        # Blog (HomePage, BlogIndexPage, BlogPage)
 ├── docs/            # Documentation (see docs/README.md for index)
+├── tests/           # Integration tests (see docs/10-testing.md)
 ├── compose.yaml     # PostgreSQL service
 ├── manage.py
 ├── justfile
