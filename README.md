@@ -93,20 +93,7 @@ Each task must follow the structure in [docs/09-task-workflow.md](docs/09-task-w
 
 ## Documentation
 
-| Doc | Description |
-|-----|-------------|
-| [docs/01-overview.md](docs/01-overview.md) | Project goals, stack, audience |
-| [docs/02-architecture.md](docs/02-architecture.md) | App layout, layers |
-| [docs/03-database.md](docs/03-database.md) | Models, migrations |
-| [docs/04-api.md](docs/04-api.md) | Endpoints, auth |
-| [docs/05-storage.md](docs/05-storage.md) | S3, path conventions |
-| [docs/06-security.md](docs/06-security.md) | Auth, CORS, validation |
-| [docs/07-deployment.md](docs/07-deployment.md) | Deployment guide |
-| [docs/08-admin.md](docs/08-admin.md) | Wagtail CMS setup |
-| [docs/09-task-workflow.md](docs/09-task-workflow.md) | AI IDE execution, branch naming, tests |
-| [docs/10-testing.md](docs/10-testing.md) | Integration tests, testcontainers |
-| [docs/11-wagtail-api.md](docs/11-wagtail-api.md) | Wagtail API v2 usage |
-| [docs/12-cicd.md](docs/12-cicd.md) | GitHub Actions; tests on approved PRs |
+See [docs/README.md](docs/README.md) for the full documentation index.
 
 ## Structure
 
@@ -115,7 +102,7 @@ Each task must follow the structure in [docs/09-task-workflow.md](docs/09-task-w
 ├── apps/
 │   ├── core/        # Core app
 │   └── blog/        # Blog (HomePage, BlogPage)
-├── docs/            # Documentation (see table above)
+├── docs/            # Documentation (see docs/README.md)
 ├── tests/           # Integration tests (see docs/10-testing.md)
 ├── compose.yaml     # PostgreSQL service
 ├── manage.py
