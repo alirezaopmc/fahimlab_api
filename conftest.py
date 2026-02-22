@@ -15,7 +15,9 @@ _postgres_container = None
 def pytest_configure(config):
     """Start PostgreSQL container and set DATABASE_URL before Django loads."""
     global _postgres_container
-    _postgres_container = PostgresContainer("postgres:18.2")
+    if os.environ.get("DATABASE_URL"):
+        return  # Already set (e.g. by CI wrapper scripts/run_tests.py)
+    _postgres_container = PostgresContainer("postgres:18.2", driver=None)
     _postgres_container.start()
     url = _postgres_container.get_connection_url()
     if url.startswith("postgres://"):
