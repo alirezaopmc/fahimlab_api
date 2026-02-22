@@ -87,6 +87,27 @@ Copy `.env.example` to `.env` for local development. Key variables:
 | `ALLOWED_HOSTS` | Comma-separated list (e.g. `localhost,127.0.0.1`) |
 | `CORS_ALLOWED_ORIGINS` | Comma-separated origins for Next.js (default: `http://localhost:3000,http://127.0.0.1:3000`) |
 
+## Tasks
+
+Each task must follow the structure in [docs/09-task-workflow.md](docs/09-task-workflow.md): branch first (`feat/area/desc` or `fix/area/desc`), plan template (Context, Scope, Goals, Implementation, Acceptance Criteria), atomic conventional commits, and doc updates when done.
+
+## Documentation
+
+| Doc | Description |
+|-----|-------------|
+| [docs/01-overview.md](docs/01-overview.md) | Project goals, stack, audience |
+| [docs/02-architecture.md](docs/02-architecture.md) | App layout, layers |
+| [docs/03-database.md](docs/03-database.md) | Models, migrations |
+| [docs/04-api.md](docs/04-api.md) | Endpoints, auth |
+| [docs/05-storage.md](docs/05-storage.md) | S3, path conventions |
+| [docs/06-security.md](docs/06-security.md) | Auth, CORS, validation |
+| [docs/07-deployment.md](docs/07-deployment.md) | Deployment guide |
+| [docs/08-admin.md](docs/08-admin.md) | Wagtail CMS setup |
+| [docs/09-task-workflow.md](docs/09-task-workflow.md) | AI IDE execution, branch naming, tests |
+| [docs/10-testing.md](docs/10-testing.md) | Integration tests, testcontainers |
+| [docs/11-wagtail-api.md](docs/11-wagtail-api.md) | Wagtail API v2 usage |
+| [docs/12-cicd.md](docs/12-cicd.md) | GitHub Actions; tests on approved PRs |
+
 ## Structure
 
 ```
@@ -94,7 +115,7 @@ Copy `.env.example` to `.env` for local development. Key variables:
 ├── apps/
 │   ├── core/        # Core app
 │   └── blog/        # Blog (HomePage, BlogPage)
-├── docs/            # Documentation (see docs/README.md for index)
+├── docs/            # Documentation (see table above)
 ├── tests/           # Integration tests (see docs/10-testing.md)
 ├── compose.yaml     # PostgreSQL service
 ├── manage.py
